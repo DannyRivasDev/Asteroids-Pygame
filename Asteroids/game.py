@@ -1,5 +1,6 @@
 import pygame
 import random 
+from models import Spaceship
 from models import GameObject
 from utils import load_sprite
 
@@ -11,12 +12,7 @@ class Asteroids:
         self.screen = pygame.display.set_mode((1080, 1080))
         self.background = load_sprite("space", False)
         self.clock = pygame.time.Clock()
-        self.spaceship = GameObject(
-            (540, 540), load_sprite("spaceship"), (0, 0)
-        )
-        self.asteroid = GameObject(
-            (540, 540), load_sprite("asteroid"), (1, 0)
-        )
+        self.spaceship = Spaceship((540, 540))
     
     def main_loop(self):
         while True:
@@ -33,11 +29,9 @@ class Asteroids:
     
     def _game_logic(self):
         self.spaceship.move()
-        self.asteroid.move()
 
     def _draw(self):
         self.screen.blit(self.background, (0, 0))
         self.spaceship.draw(self.screen)
-        self.asteroid.draw(self.screen)
         pygame.display.flip()
-        print("Collides:", self.spaceship.collides_with(self.asteroid))
+        self.clock.tick(60)
