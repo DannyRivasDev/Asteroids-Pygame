@@ -25,6 +25,8 @@ class GameObject:
 
 class Spaceship(GameObject):
     MANEUVERABILITY = 3
+    ACCELERATION = 0.25
+
     def __init__(self, position):
         self.direction = Vector2(UP)
         super().__init__(position, load_sprite("spaceship"), Vector2(0))
@@ -33,6 +35,9 @@ class Spaceship(GameObject):
         sign = 1 if clockwise else -1
         angle = self.MANEUVERABILITY * sign
         self.direction.rotate_ip(angle)
+    
+    def accelerate(self):
+        self.velocity += self.direction * self.ACCELERATION
     
     def draw(self, surface):
         angle = self.direction.angle_to(UP)
