@@ -1,7 +1,7 @@
 import pygame
-import random 
-from models import Spaceship
-from models import GameObject
+# import random 
+from models import Asteroid, Spaceship
+# from models import GameObject
 from utils import load_sprite
 
 class Asteroids:
@@ -12,6 +12,8 @@ class Asteroids:
         self.screen = pygame.display.set_mode((1080, 1080))
         self.background = load_sprite("space", False)
         self.clock = pygame.time.Clock()
+
+        self.asteroids = [Asteroid((0, 0)) for _ in range(6)]
         self.spaceship = Spaceship((540, 540))
     
     def main_loop(self):
