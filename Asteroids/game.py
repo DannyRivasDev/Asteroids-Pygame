@@ -5,7 +5,7 @@ from models import GameObject
 from utils import load_sprite
 
 class Asteroids:
-    def __init__(self):
+    def __init__(self): 
         pygame.init()
         pygame.display.set_caption("Asteroids")
 
