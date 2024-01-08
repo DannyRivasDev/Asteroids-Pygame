@@ -39,10 +39,15 @@ class Asteroids:
             self.spaceship.accelerate()
     
     def _game_logic(self):
-        self.spaceship.move(self.screen)
+        for game_object in self._get_game_objects():
+            game_object.move(self.screen)
+    
+    def _get_game_objects(self):
+        return [*self.asteroids, self.spaceship]
 
     def _draw(self):
         self.screen.blit(self.background, (0, 0))
-        self.spaceship.draw(self.screen)
+        for game_object in self._get_game_objects():
+            game_object.draw(self.screen)
         pygame.display.flip()
         self.clock.tick(60)
