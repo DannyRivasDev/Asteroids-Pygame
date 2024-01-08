@@ -1,10 +1,11 @@
-import pygame
-# import random 
+import pygame 
 from models import Asteroid, Spaceship
 # from models import GameObject
-from utils import load_sprite
+from utils import get_random_position, load_sprite
 
 class Asteroids:
+    MIN_ASTEROID_DISTANCE = 250
+
     def __init__(self): 
         pygame.init()
         pygame.display.set_caption("Asteroids")
@@ -13,8 +14,19 @@ class Asteroids:
         self.background = load_sprite("space", False)
         self.clock = pygame.time.Clock()
 
-        self.asteroids = [Asteroid((0, 0)) for _ in range(6)]
+        self.asteroids = []
         self.spaceship = Spaceship((540, 540))
+
+        for _ in range(8):
+            while True:
+                position = get_random_position(self.screen)
+                if (
+                    position.distance_to(self.spaceship.position)
+                    > self.MIN_ASTEROID_DISTANCE
+                ):
+                    break
+
+            self.asteroids.append(Asteroid(position))
     
     def main_loop(self):
         while True:
@@ -31,19 +43,29 @@ class Asteroids:
         
         is_key_pressed = pygame.key.get_pressed()
 
-        if is_key_pressed[pygame.K_RIGHT]:
-            self.spaceship.rotate(clockwise=True)
-        elif is_key_pressed[pygame.K_LEFT]:
-            self.spaceship.rotate(clockwise=False)
-        if is_key_pressed[pygame.K_UP]:
-            self.spaceship.accelerate()
+        if self.spaceship:
+            if is_key_pressed[pygame.K_RIGHT]:
+                self.spaceship.rotate(clockwise=True)
+            elif is_key_pressed[pygame.K_LEFT]:
+                self.spaceship.rotate(clockwise=False)
+            if is_key_pressed[pygame.K_UP]:
+                self.spaceship.accelerate()
     
     def _game_logic(self):
         for game_object in self._get_game_objects():
             game_object.move(self.screen)
+        
+        if self.spaceship:
+            for asteroid in self.asteroids:
+                if asteroid.collides_with(self.spaceship):
+                    self.spaceship = None
+                    break
     
     def _get_game_objects(self):
-        return [*self.asteroids, self.spaceship]
+        game_objects = [*self.asteroids]
+
+        if self.spaceship:
+            game_objects.append(self.spaceship)
 
     def _draw(self):
         self.screen.blit(self.background, (0, 0))
