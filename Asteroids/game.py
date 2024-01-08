@@ -6,7 +6,7 @@ from utils import get_random_position, load_sprite
 class Asteroids:
     MIN_ASTEROID_DISTANCE = 250
 
-    def __init__(self): 
+    def __init__(self):
         pygame.init()
         pygame.display.set_caption("Asteroids")
 
