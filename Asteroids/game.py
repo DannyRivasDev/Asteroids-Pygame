@@ -15,6 +15,7 @@ class Asteroids:
         self.clock = pygame.time.Clock()
 
         self.asteroids = []
+        self.bullets = []
         self.spaceship = Spaceship((540, 540))
 
         for _ in range(8):
@@ -62,7 +63,7 @@ class Asteroids:
                     break
     
     def _get_game_objects(self):
-        game_objects = [*self.asteroids]
+        game_objects = [*self.asteroids, *self.bullets]
 
         if self.spaceship:
             game_objects.append(self.spaceship)

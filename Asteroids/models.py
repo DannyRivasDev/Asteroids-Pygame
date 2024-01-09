@@ -51,3 +51,7 @@ class Asteroid(GameObject):
         super().__init__(
             position, load_sprite("asteroid"), get_random_velocity(1, 3)
         )
+
+class Bullet(GameObject):
+    def __init__(self, position, velocity):
+        super().__init__(position, load_sprite("bullet"), velocity)
