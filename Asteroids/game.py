@@ -1,5 +1,5 @@
 import pygame 
-from models import Asteroid, Spaceship
+from models import Asteroid, Spaceship, Bullet
 # from models import GameObject
 from utils import get_random_position, load_sprite
 
@@ -18,7 +18,7 @@ class Asteroids:
         self.bullets = []
         self.spaceship = Spaceship((540, 540), self.bullets.append)
 
-        for _ in range(8):
+        for _ in range(6):
             while True:
                 position = get_random_position(self.screen)
                 if (
@@ -73,6 +73,8 @@ class Asteroids:
 
         if self.spaceship:
             game_objects.append(self.spaceship)
+        
+        return game_objects
 
     def _draw(self):
         self.screen.blit(self.background, (0, 0))
