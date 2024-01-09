@@ -16,7 +16,7 @@ class Asteroids:
 
         self.asteroids = []
         self.bullets = []
-        self.spaceship = Spaceship((540, 540))
+        self.spaceship = Spaceship((540, 540), self.bullets.append)
 
         for _ in range(8):
             while True:
@@ -41,6 +41,12 @@ class Asteroids:
                 event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE
             ):
                 quit()
+            elif (
+                self.spaceship
+                and event.type == pygame.KEYDOWN
+                and event.key == pygame.K_SPACE
+            ):
+                self.spaceship.shoot()
         
         is_key_pressed = pygame.key.get_pressed()
 
