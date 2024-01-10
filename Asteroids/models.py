@@ -17,7 +17,7 @@ class GameObject:
         surface.blit(self.sprite, blit_position)
 
     def move(self, surface):
-        self.position = self.position + self.velocity
+        self.position = wrap_position(self.position + self.velocity, surface)
 
     def collides_with(self, other_obj):
         distance = self.position.distance_to(other_obj.position)
@@ -56,6 +56,7 @@ class Spaceship(GameObject):
 class Asteroid(GameObject):
     def __init__(self, position, create_asteroid_callback, size=3):
         self.create_asteroid_callback = create_asteroid_callback
+        self.size = size
 
         size_to_scale = {
             3: 1,
