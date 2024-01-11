@@ -1,6 +1,7 @@
 import random
 from pygame.image import load
 from pygame.math import Vector2
+from pygame.mixer import Sound
 from pathlib import Path
 
 def load_sprite(name, with_alpha = True):
