@@ -30,5 +30,5 @@ def get_random_velocity(min_speed, max_speed):
     return Vector2(speed, 0).rotate(angle)
 
 def load_sound(name):
-    path = f"assets/sounds/{name}.wav"
+    path = f"Asteroids/assets/sounds/{name}.wav"
     return Sound(path)
