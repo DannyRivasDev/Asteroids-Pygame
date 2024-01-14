@@ -68,6 +68,7 @@ class Asteroids:
             for asteroid in self.asteroids:
                 if asteroid.collides_with(self.spaceship):
                     self.spaceship = None
+                    self.message = "Game Over"
                     break
 
         for bullet in self.bullets[:]:
@@ -81,6 +82,9 @@ class Asteroids:
         for bullet in self.bullets[:]:
             if not self.screen.get_rect().collidepoint(bullet.position):
                 self.bullets.remove(bullet)
+        
+        if not self.asteroids and self.spaceship:
+            self.message = "You won!"
     
     def _get_game_objects(self):
         game_objects = [*self.asteroids, *self.bullets]
@@ -92,7 +96,12 @@ class Asteroids:
 
     def _draw(self):
         self.screen.blit(self.background, (0, 0))
+
         for game_object in self._get_game_objects():
             game_object.draw(self.screen)
+
+        if self.message:
+            print_text(self.screen, self.message, self.font)
+
         pygame.display.flip()
         self.clock.tick(60)
