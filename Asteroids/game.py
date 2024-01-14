@@ -1,6 +1,6 @@
 import pygame 
-from models import Asteroid, Spaceship, Bullet
-# from models import GameObject
+from models import Asteroid, Spaceship
+from utils import get_random_position, load_sprite, print_text
 from utils import get_random_position, load_sprite
 
 class Asteroids:
@@ -13,7 +13,9 @@ class Asteroids:
         self.screen = pygame.display.set_mode((1080, 1080))
         self.background = load_sprite("space", False)
         self.clock = pygame.time.Clock()
-
+        self.font = pygame.font.Font(None, 64)
+        self.message = ""
+        
         self.asteroids = []
         self.bullets = []
         self.spaceship = Spaceship((540, 540), self.bullets.append)
