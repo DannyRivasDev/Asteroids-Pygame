@@ -1,5 +1,5 @@
 # Asteroids-Pygame
-Learning Pygame by creating an asteroids game. 
+Utilizing Pygame to create an asteroids game. 
 
 ## Prerequisites
 - Python 3.x
