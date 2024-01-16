@@ -26,7 +26,7 @@ class GameObject:
 class Spaceship(GameObject):
     MANEUVERABILITY = 3
     ACCELERATION = 0.2
-    BULLET_SPEED = 63
+    BULLET_SPEED = 10
 
     def __init__(self, position, create_bullet_callback):
         self.create_bullet_callback = create_bullet_callback
@@ -83,3 +83,6 @@ class Asteroid(GameObject):
 class Bullet(GameObject):
     def __init__(self, position, velocity):
         super().__init__(position, load_sprite("bullet"), velocity)
+    
+    def move(self, surface):
+        self.position = self.position + self.velocity
