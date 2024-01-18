@@ -69,7 +69,7 @@ class Asteroid(GameObject):
         sprite = rotozoom(load_sprite("asteroid"), 0, scale)
 
         super().__init__(
-            position, sprite, get_random_velocity(1, 3)
+            position, sprite, get_random_velocity(1, 2)
         )
     
     def split(self):
