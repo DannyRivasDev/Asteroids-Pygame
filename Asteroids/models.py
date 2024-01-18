@@ -24,8 +24,8 @@ class GameObject:
         return distance < self.radius + other_obj.radius
 
 class Spaceship(GameObject):
-    MANEUVERABILITY = 3
-    ACCELERATION = 0.2
+    MANEUVERABILITY = 4
+    ACCELERATION = 0.15
     BULLET_SPEED = 10
 
     def __init__(self, position, create_bullet_callback):
