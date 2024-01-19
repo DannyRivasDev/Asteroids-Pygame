@@ -24,6 +24,7 @@ class GameObject:
         return distance < self.radius + other_obj.radius
 
 class Spaceship(GameObject):
+    # Edit the attributes of the spaceship
     MANEUVERABILITY = 4
     ACCELERATION = 0.15
     BULLET_SPEED = 10
@@ -69,6 +70,7 @@ class Asteroid(GameObject):
         sprite = rotozoom(load_sprite("asteroid"), 0, scale)
 
         super().__init__(
+            # Edit the speed of the asteroids
             position, sprite, get_random_velocity(1, 2)
         )
     
