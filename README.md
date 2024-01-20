@@ -10,6 +10,10 @@ Utilizing Pygame to create an asteroids game.
 
 Run the `__main__.py` file to start playing. 
 
+## Controls
+- Arrow keys: Rotate and move the spaceship.
+- Spacebar: Shoot bullets.
+
 ## Customization
 You can customize various aspects of the game by modifying the attributes in the Spaceship and Asteroid classes. For example:
 
@@ -17,7 +21,4 @@ You can customize various aspects of the game by modifying the attributes in the
 - Set the initial size and speed of asteroids.
 - Customize the sprite images for the spaceship, asteroids, and bullets.
 
-## Controls
-- Arrow keys: Rotate and move the spaceship.
-- Spacebar: Shoot bullets.
 
