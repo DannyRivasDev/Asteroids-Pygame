@@ -21,4 +21,9 @@ You can customize various aspects of the game by modifying the attributes in the
 - Set the initial size and speed of asteroids.
 - Customize the sprite images for the spaceship, asteroids, and bullets.
 
+## Sound Effects
+The game includes a laser sound effect for each bullet fired. You can replace the sound file with your own custom sound.
+
+
+
 
