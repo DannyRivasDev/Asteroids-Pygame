@@ -41,8 +41,11 @@ class Spaceship(GameObject):
         self.direction.rotate_ip(angle)
     
     def accelerate(self):
-        self.velocity += self.direction * self.ACCELERATION
-    
+        if (self.direction * self.ACCELERATION) > 5:
+            self.velocity += 5
+        else:
+            self.velocity += self.direction * self.ACCELERATION
+            
     def draw(self, surface):
         angle = self.direction.angle_to(UP)
         rotated_surface = rotozoom(self.sprite, angle, 1.0)
