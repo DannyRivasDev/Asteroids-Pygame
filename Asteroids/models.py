@@ -41,10 +41,7 @@ class Spaceship(GameObject):
         self.direction.rotate_ip(angle)
     
     def accelerate(self):
-        if (self.direction * self.ACCELERATION) > 5:
-            self.velocity += 5
-        else:
-            self.velocity += self.direction * self.ACCELERATION
+        self.velocity += self.direction * self.ACCELERATION
             
     def draw(self, surface):
         angle = self.direction.angle_to(UP)
