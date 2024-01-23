@@ -71,7 +71,7 @@ class Asteroid(GameObject):
 
         super().__init__(
             # Edit the speed of the asteroids
-            position, sprite, get_random_velocity(1, 2)
+            position, sprite, get_random_velocity(1, 3)
         )
     
     def split(self):
