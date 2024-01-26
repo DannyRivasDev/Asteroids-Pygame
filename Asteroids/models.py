@@ -62,9 +62,9 @@ class Asteroid(GameObject):
         self.size = size
 
         size_to_scale = {
-            3: 1,
-            2: 0.5,
-            1: 0.25,
+            3: 1.2,
+            2: 0.8,
+            1: 0.4,
         }
         scale = size_to_scale[size]
         sprite = rotozoom(load_sprite("asteroid"), 0, scale)
