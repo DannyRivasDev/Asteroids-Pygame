@@ -85,7 +85,7 @@ class Asteroids:
                 self.bullets.remove(bullet)
         
         if not self.asteroids and self.spaceship:
-            self.message = "Zone Cleared!"
+            self.message = "Winner!"
     
     def _get_game_objects(self):
         game_objects = [*self.asteroids, *self.bullets]

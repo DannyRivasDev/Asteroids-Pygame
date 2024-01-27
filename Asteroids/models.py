@@ -61,6 +61,7 @@ class Asteroid(GameObject):
         self.create_asteroid_callback = create_asteroid_callback
         self.size = size
 
+        # Edit size of the asteroids
         size_to_scale = {
             3: 1.2,
             2: 0.8,
