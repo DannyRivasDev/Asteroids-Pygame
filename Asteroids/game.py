@@ -66,14 +66,11 @@ class Asteroids:
             game_object.move(self.screen)
         
         if self.spaceship:
-            lives = 0
             for asteroid in self.asteroids:
-                if asteroid.collides_with(self.spaceship) and lives == 3:
+                if asteroid.collides_with(self.spaceship):
                     self.spaceship = None
                     self.message = "Game Over"
                     break
-                else:
-                    lives += 1
 
         for bullet in self.bullets[:]:
             for asteroid in self.asteroids[:]:
