@@ -21,7 +21,7 @@ class Asteroids:
         self.spaceship = Spaceship((540, 540), self.bullets.append)
 
         # Number of asteroids that spawn
-        for _ in range(7):
+        for _ in range(8):
             while True:
                 position = get_random_position(self.screen)
                 if (
@@ -66,11 +66,14 @@ class Asteroids:
             game_object.move(self.screen)
         
         if self.spaceship:
+            lives = 0
             for asteroid in self.asteroids:
-                if asteroid.collides_with(self.spaceship):
+                if asteroid.collides_with(self.spaceship) and lives == 3:
                     self.spaceship = None
                     self.message = "Game Over"
                     break
+                else:
+                    lives += 1
 
         for bullet in self.bullets[:]:
             for asteroid in self.asteroids[:]:
