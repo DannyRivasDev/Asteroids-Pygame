@@ -26,7 +26,7 @@ class GameObject:
 class Spaceship(GameObject):
     # Edit the attributes of the spaceship
     MANEUVERABILITY = 4
-    ACCELERATION = 0.12
+    ACCELERATION = 0.11
     BULLET_SPEED = 10
 
     def __init__(self, position, create_bullet_callback):
