@@ -71,8 +71,8 @@ class Asteroid(GameObject):
         sprite = rotozoom(load_sprite("asteroid"), 0, scale)
 
         super().__init__(
-            # Edit the speed of the asteroids
-            position, sprite, get_random_velocity(1, 2.5)
+            # Edit the speed of the asteroids using integers
+            position, sprite, get_random_velocity(1, 3)
         )
     
     def split(self):
