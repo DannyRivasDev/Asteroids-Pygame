@@ -11,7 +11,7 @@ Utilized Pygame to create an asteroids game.
 Run the `__main__.py` file to start playing. 
 
 ## Controls
-- Arrow keys: Rotate and move the spaceship.
+- Arrow keys or WASD keys: Rotate and move the spaceship.
 - Spacebar: Shoot bullets.
 
 ## Customization
