@@ -34,7 +34,7 @@ def load_sound(name):
     path = f"Asteroids/assets/sounds/{name}.wav"
     return Sound(path)
 
-def print_text(surface, text, font, color=Color("tomato")):
+def print_text(surface, text, font, color=Color("white")):
     text_surface = font.render(text, True, color)
 
     rect = text_surface.get_rect()
