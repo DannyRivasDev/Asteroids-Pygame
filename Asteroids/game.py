@@ -21,7 +21,7 @@ class Asteroids:
         self.spaceship = Spaceship((540, 540), self.bullets.append)
 
         # Number of asteroids that spawn
-        for _ in range(7):
+        for _ in range(10):
             while True:
                 position = get_random_position(self.screen)
                 if (
